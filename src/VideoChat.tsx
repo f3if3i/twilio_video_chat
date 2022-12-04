@@ -29,8 +29,7 @@ export const VideoChat = () => {
         //     }
         // }).then(res => res.json());
         // setToken(data.token);
-        // const sampleToken = ""
-        const sampleToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImN0eSI6InR3aWxpby1mcGE7dj0xIn0.eyJqdGkiOiJTS2MxNTk4ZTRhMjgyMjYyY2RjZDAzNTQ2MTA1ZGVjY2E1LTE2NzAwNjAyNjIiLCJncmFudHMiOnsiaWRlbnRpdHkiOiI1NzA1ZmRiOS02MzIxLTQwMTQtYTJkZi1lYzNlYTEyOTY0NWMiLCJ2aWRlbyI6e319LCJpYXQiOjE2NzAwNjAyNjIsImV4cCI6MTY3MDA2Mzg2MiwiaXNzIjoiU0tjMTU5OGU0YTI4MjI2MmNkY2QwMzU0NjEwNWRlY2NhNSIsInN1YiI6IkFDNjBiNjM4ZjJjYTYzOTQ1MzEwYjdmM2VkYzkwMzBiMmEifQ.ibPVjZAZM3QjJGkQjh5AyquUZtT61tzX-4ApkhYbtf0";
+        const sampleToken = ""
 
         setToken(sampleToken);
         // eslint-disable-next-line react-hooks/exhaustive-deps
