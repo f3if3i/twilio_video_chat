@@ -1,6 +1,7 @@
-import { Stack, Input, FormControl, FormLabel, Button, Box, Heading, Flex, Center } from '@chakra-ui/react';
-import React from 'react';
-import './App.css';
+import { Stack, Input, FormControl, FormLabel, Button, Box, Heading, Flex } from "@chakra-ui/react"
+import React from "react"
+import styles from "../styles/Lobby.module.css"
+
 
 type LobbyProps = {
     username: string,
@@ -18,7 +19,7 @@ const Lobby = ({
     handleSubmit
 }: LobbyProps) => {
     return (
-        <div className='lobby'>
+        <div className={styles.lobby}>
 
             <Flex
                 direction="column"
@@ -50,7 +51,7 @@ const Lobby = ({
             </Flex>
 
         </div>
-    );
-};
+    )
+}
 
-export default Lobby;
+export default Lobby
