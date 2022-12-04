@@ -1,5 +1,5 @@
 {
-  "name": "twilio-video-chat",
+  "name": "twilio-video-chat-react",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
