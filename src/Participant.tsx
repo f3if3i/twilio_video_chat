@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import './App.css';
 
 export const Participant: React.FC<any> = ({ participant }) => {
     const [videoTracks, setVideoTracks] = useState<any[]>([]);
@@ -64,8 +65,8 @@ export const Participant: React.FC<any> = ({ participant }) => {
 
     return (
         <div className="participant">
-            <h3>{participant.identity}</h3>
-            <video ref={videoRef} autoPlay={true} />
+            {/* <h3>{participant.identity}</h3> */}
+            <video ref={videoRef} autoPlay={true} className="video" />
             <audio ref={audioRef} autoPlay={true} muted={true} />
         </div>
     );

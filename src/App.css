@@ -20,4 +20,16 @@
   width: 100%; /* ヘッダーの横幅を指定する */
   height: 35px; /* ヘッダーの高さを指定する */
   padding: 10px; /* ヘッダーの余白を指定する(上下左右) */
-} 
+}
+
+.video {
+  border-radius: "20px";
+}
+
+video {
+  width: 100%;
+  max-width: 600px;
+  display: block;
+  margin: 0 auto;
+  border-radius: 18px;
+}

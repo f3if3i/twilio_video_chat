@@ -1,5 +1,4 @@
 import { Box, Button, Flex, Heading, Spacer, Stack } from '@chakra-ui/react';
-import { css } from '@emotion/react';
 import React, { useState, useEffect } from 'react';
 import Video from 'twilio-video';
 import Participant from './Participant';
@@ -49,6 +48,7 @@ export const Room = ({ roomName, token, handleLogout }: RoomProps) => {
         return () => {
             setRoom(currentRoom => {
                 if (currentRoom && currentRoom.localParticipant.state === 'connected') {
+                    console.log('currentRoom.localParticipant', currentRoom.localParticipant)
                     currentRoom.localParticipant.tracks.forEach(function (trackPublication: { track: { stop: () => void; }; }) {
                         trackPublication.track.stop();
                     });
@@ -62,39 +62,42 @@ export const Room = ({ roomName, token, handleLogout }: RoomProps) => {
     }, [roomName, token]);
 
     return (
-        <div className="room">
-            <Flex
-                align="center"
-                pos="relative"
-                justify="center"
-                boxSize="full"
-                // bg="blackAlpha.700"
-                position="static"
-            >
-                <Flex>
-                    <Box p="4" bg="red.400">
-                        <Heading as="h3" size="3xl">Room: {roomName}</Heading>
-                    </Box>
-                    <Spacer />
-                    <Box p="4" bg="green.400">
-                        <Button onClick={handleLogout}>Log out</Button>
-                    </Box>
-                </Flex>
+        <Box h="100%" w="100%">
+            <Flex>
+                <Box p="4">
+                    <Heading as="h3" size="xl">Room: {roomName}</Heading>
+                </Box>
+                <Spacer />
+                <Box p="4">
+                    <Button colorScheme="teal" onClick={handleLogout}>Log out</Button>
+                </Box>
             </Flex>
-            <Stack>
-                <div className="local-participant">
-                    {room ? (
-                        <Participant
-                            key={room.localParticipant.sid}
-                            participant={room.localParticipant}
-                        />
-                    ) : (
-                        ''
-                    )}
-                </div>
-                <h3>Remote Participants</h3>
-                <div className="remote-participants">{remoteParticipants}</div>
-            </Stack>
-        </div >
+            <Flex mt="10rem">
+                <Box w="50%">
+                    <div className="local-participant">
+                        {room ? (
+                            <Participant
+                                key={room.localParticipant.sid}
+                                participant={room.localParticipant}
+                            />
+                        ) : (
+                            ''
+                        )}
+                    </div>
+                </Box>
+                <Box w="50%">
+                    {remoteParticipants && remoteParticipants.length > 0 ?
+                        <Flex align="center" justify="center">
+                            <Heading as="h5" size="md">Remote Participants</Heading>
+                            <div className="remote-participants">{remoteParticipants}</div>
+                        </Flex>
+                        :
+                        <Flex align="center" justify="center">
+                            <Heading as="h5" size="md">There's not remote participants yet...</Heading>
+                        </Flex>
+                    }
+                </Box>
+            </Flex>
+        </Box>
     );
 };
